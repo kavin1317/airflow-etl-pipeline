@@ -16,8 +16,8 @@ mkdir -p dags logs plugins data
 ```
 
 ### 2. Add Files
-- Put `extract_transform_load.py` in `dags/` folder
-- Put other files in project root
+Put the files in these locations:
+```
 airflow-etl-pipeline/
 ├── dags/
 │   └── extract_transform_load.py    # Main DAG file
@@ -29,6 +29,8 @@ airflow-etl-pipeline/
 ├── .env                              # Environment variables
 ├── .gitignore                        # Git ignore rules
 └── README.md                         # This file
+```
+
 ### 3. Start Airflow
 ```bash
 docker-compose up -d
