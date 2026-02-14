@@ -1,57 +1,40 @@
-# ETL Pipeline with Airflow
-
+ETL Pipeline with Airflow
 A beginner-friendly ETL pipeline using Apache Airflow and Docker.
-
-## What This Does
-
+What This Does
 Extracts sample customer data, transforms it (adds tax, categories), and loads it into a database.
-
-## Quick Start
-
-### 1. Setup
-```bash
-mkdir airflow-etl-pipeline
+Quick Start
+1. Setup
+bashmkdir airflow-etl-pipeline
 cd airflow-etl-pipeline
 mkdir -p dags logs plugins data
-```
+2. Add Files
 
-### 2. Add Files
-- Put `extract_transform_load.py` in `dags/` folder
-- Put `docker-compose.yml`, `requirements.txt`, `.env`, `.gitignore`, `README.md` in project root
+Put extract_transform_load.py in dags/ folder
+Put docker-compose.yml, requirements.txt, .env, .gitignore, README.md in project root
 
-### 3. Start Airflow
-```bash
-docker-compose up -d
-```
+3. Start Airflow
+bashdocker-compose up -d
+4. Access UI
 
-### 4. Access UI
-- Open: http://localhost:8080
-- Login: `airflow` / `airflow`
+Open: http://localhost:8080
+Login: airflow / airflow
 
-### 5. Run Pipeline
-1. Toggle DAG to ON
-2. Click Play button
-3. Select "Trigger DAG"
+5. Run Pipeline
 
-## View Results
+Toggle DAG to ON
+Click Play button
+Select "Trigger DAG"
 
-**See data in CSV:**
-```bash
-cat data/transformed_data.csv
-```
-
-**See data in database:**
-```bash
-sqlite3 data/etl_database.db
+View Results
+See data in CSV:
+bashcat data/transformed_data.csv
+See data in database:
+bashsqlite3 data/etl_database.db
 SELECT * FROM customer_purchases;
 .exit
-```
+Stop Airflow
+bashdocker-compose down
+Need Help?
 
-## Stop Airflow
-```bash
-docker-compose down
-```
-
-## Need Help?
-- Check logs: `docker-compose logs airflow-scheduler`
-- Restart: `docker-compose restart`
+Check logs: docker-compose logs airflow-scheduler
+Restart: docker-compose restart
